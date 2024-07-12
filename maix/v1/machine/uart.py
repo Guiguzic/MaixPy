@@ -68,6 +68,8 @@ class UART:
             raise Exception("Invalid stop")
         self._uart = uart.UART(self.device, baudrate, bits, parity, stop)
         self.timeout = timeout
-
+    def flusu(self):
+        while self.any() >0:
+            self.read()
     def deinit(self):
         self._uart.close()
